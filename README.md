@@ -34,10 +34,10 @@ This application showcases how to pipe files from a multi-part form using stream
   ```
 
   **NOTE:** This app connects to a container in Swift called "test" defaulty.  You will need to create this container.  You can do this by the following.
-  -Going to the Bluemix dashboard
-  -click on your app
-  -click on the object storage service
-  -create a container on this page called "test"
+  - Going to the Bluemix dashboard
+  - click on your app
+  - click on the object storage service
+  - create a container on this page called "test"
 
   If you would like to use a container called something else you will need to do the following.
 
