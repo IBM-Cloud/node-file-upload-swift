@@ -1,0 +1,18 @@
+{
+  "name": "node-file-upload-swift",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "bower install --allow-root --config.interactive=false"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/vendor"
+  ],
+  "dependencies": {
+    "bootstrap": "*",
+    "jquery": "*"
+  }
+}

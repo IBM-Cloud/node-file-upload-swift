@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>File Uploader</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <section>
+    <h2>Upload file</h2>
+        <form action='/upload' method='post' enctype='multipart/form-data'><input type='file' name='file' /><input type='submit' value='Submit' /></form>
+    </section>
+    <section>
+        <h2>Uploaded Files</h2>
+        <div class="files">
+            <ul>
+            </ul>
+        </div>
+    </section>
+    <script src="/vendor/jquery/dist/jquery.min.js" type="text/javascript"> </script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"> </script>
+    <script>
+        $(document).ready(function() {
+            $.get("/files", function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    var file = data[i];
+                    var element = "<li><a href='/files/" + file.name + "'>" + data[i].name + "</a>";
+                    $(".files ul").append(element);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+---
+declared-services:
+  swift-node-file-upload:
+    label: Object-Storage
+    plan: Beta
+applications:
+- name: node-file-upload-swift
+  command: node server.js
+  path: .
+  memory: 1G
+  services:
+  - swift-node-file-upload
