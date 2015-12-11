@@ -31,7 +31,8 @@ module.exports = function SwiftStore(globalOpts) {
 
         ls: function(options, callback) {
             var client = getClient(options.credentials);
-            client.getFiles(options.container, function(error, files) {
+
+            client.getFiles(options.container, function (error, files) {
                 return callback(error, files);
             });
         },
@@ -59,14 +60,28 @@ module.exports = function SwiftStore(globalOpts) {
                 }));
 
                 __newFile.on("end", function(err, value) {
-                  console.log("finished");
-                    receiver.emit( 'finish', err, value );
+                  console.log("finished uploading", __newFile.filename);
+                    receiver.emit('finish', err, value );
                     done();
                 });
 
             };
 
             return receiver;
+        },
+        ensureContainerExists: function(credentials, container, callback) {
+          var client = getClient(credentials);
+
+          client.getContainers(function (error, containers) {
+            if (error) {
+              callback(error);
+              return;
+            }
+            if (containers.length === 0) {
+              client.createContainer(container, callback);
+            }
+            callback(null);
+          });
         }
     }
 

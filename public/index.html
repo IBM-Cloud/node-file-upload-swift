@@ -9,7 +9,14 @@
     <div class="container">
         <section>
         <h2>Upload file</h2>
-            <form action='/upload' method='post' enctype='multipart/form-data'><input type='file' name='file' /><input type='submit' value='Submit' /></form>
+            <form action='/upload' method='post' enctype='multipart/form-data'>
+                <div class="input-group col-md-4">
+                    <input type='file' name='file' class="form-control" />
+                    <div class="input-group-btn">
+                        <input class="btn btn-default" type='submit' value='Upload' />
+                  </div>
+                </div>
+            </form>
         </section>
         <section>
             <h2>Uploaded Files</h2>

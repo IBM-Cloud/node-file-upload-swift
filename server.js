@@ -60,7 +60,6 @@ app.post("/upload", function (request, response) {
                 return response.send(err);
             }
             else {
-                console.log(uploadedFiles);
                 return response.redirect("/");
             }
 
@@ -70,6 +69,16 @@ app.post("/upload", function (request, response) {
 var port = process.env.VCAP_APP_PORT || 8080;
 app.listen(port, function() {
     console.log('listening on port', port);
+
+    var skipperSwift = require("./skipper-swift")();
+    skipperSwift.ensureContainerExists(swiftCredentials, container, function (error) {
+      if (error) {
+        console.log("unable to create default container", container);
+      }
+      else {
+        console.log("ensured default container", container, "exists");
+      }
+    });
 });
 
 require("cf-deployment-tracker-client").track();
