@@ -9,6 +9,7 @@
     "express": "~4.x",
     "pkgcloud": "git+https://github.com/IBM-Bluemix/pkgcloud.git#fix-openstack-auth",
     "skipper": "^0.5.8",
+    "skipper-openstack": "0.0.1",
     "stream": "0.0.2",
     "underscore": "^1.8.3"
   },
