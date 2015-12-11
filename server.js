@@ -14,7 +14,7 @@ catch (e) {}
 var appEnvOpts = vcapLocal ? {vcap:vcapLocal} : {};
 var appEnv = cfenv.getAppEnv(appEnvOpts);
 
-var container = process.env.CONTAINER || "test"
+var container = process.env.CONTAINER || "test2"
 
 app.use(express.static(__dirname + "/public"));
 

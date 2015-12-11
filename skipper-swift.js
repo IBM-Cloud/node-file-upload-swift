@@ -1,5 +1,6 @@
 var pkgcloud = require("pkgcloud"),
-    Writable = require('stream').Writable;
+    Writable = require('stream').Writable,
+    _ = require("underscore");
 
 function getClient(credentials) {
   return pkgcloud.storage.createClient({
@@ -69,7 +70,7 @@ module.exports = function SwiftStore(globalOpts) {
 
             return receiver;
         },
-        ensureContainerExists: function(credentials, container, callback) {
+        ensureContainerExists: function(credentials, containerName, callback) {
           var client = getClient(credentials);
 
           client.getContainers(function (error, containers) {
@@ -78,9 +79,20 @@ module.exports = function SwiftStore(globalOpts) {
               return;
             }
             if (containers.length === 0) {
-              client.createContainer(container, callback);
+              client.createContainer(containerName, callback);
             }
-            callback(null);
+            else {
+              var found = _.find(containers, function (container) {
+                  return container.name === containerName;
+              });
+              if (found === undefined) {
+                client.createContainer(containerName, callback);
+              }
+              else {
+                callback(null);
+              }
+            }
+
           });
         }
     }
