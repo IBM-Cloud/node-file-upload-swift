@@ -2,7 +2,7 @@
   "name": "node-file-upload-swift",
   "version": "0.0.0",
   "dependencies": {
-    "bower": "^1.7.0",
+    "bower": "^1.7.1",
     "cf-deployment-tracker-client": "*",
     "cfenv": "^1.0.3",
     "dotenv": "^1.2.0",
