@@ -2,7 +2,7 @@
 declared-services:
   swift-node-file-upload:
     label: Object-Storage
-    plan: Beta
+    plan: Free
 applications:
 - name: node-file-upload-swift
   command: node server.js
