@@ -25,7 +25,7 @@ This application showcases how to pipe files from a multi-part form using stream
 2. Create a Object Storage service instance specifically for this application.  With Bluemix, the following command will create a free Object Storage instance.
 
   ```bash
-    cf create-service Object-Store Free swift-node-file-upload
+    cf create-service Object-Storage Free swift-node-file-upload
   ```
 
 3. Edit the manifest.yml file.  Change the 'host' attribute to something unique.
