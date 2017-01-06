@@ -66,7 +66,7 @@ app.post("/upload", function (request, response) {
         });
 });
 
-var port = process.env.VCAP_APP_PORT || 8080;
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
     console.log('listening on port', port);
 
