@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "bower": "^1.7.9",
-    "cf-deployment-tracker-client": "*",
+    "cf-deployment-tracker-client": "0.1.2",
     "cfenv": "^1.0.3",
     "dotenv": "^1.2.0",
     "express": "~4.x",
